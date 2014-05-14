@@ -32,6 +32,7 @@
 #define TILT_PWM         10
  
 #define ID 1
+#define SYNC_ID 254//shared ID for synchronus commands
 
 
 #define ARDUINO
@@ -119,7 +120,7 @@ void loop()
  
    if(command.ReadMsgs() > 0)
    {
-    if(command.id == ID)
+    if(command.id == ID || command.id ==SYNC_ID)
     {
         if(command.lookV < (-1 * DEADBAND))
         {
